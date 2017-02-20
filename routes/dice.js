@@ -4,7 +4,7 @@ const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
 
-router.get('/', function(req, res, next){
+router.get('/roll', function(req, res, next){
   res.send('get request success');
 });
 

@@ -1,1 +1,6 @@
-var myApp = angular.module("myApp",[]);
+(function(){
+
+  angular.module("myApp",["ui.router", 'ui.materialize']);
+
+
+})();
