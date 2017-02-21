@@ -3,3 +3,30 @@
   background-color: black;
   color: white;
 }
+
+.home-container{
+  display: flex;
+  justify-content: center;
+  margin: 5 25 5 25;
+}
+.home-card{
+  margin-right: 25px;
+  width: 45%;
+}
+.btn{
+  background-color: black;
+  align-self: center;
+}
+
+@media (max-width: 750px) {
+  .home-container{
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    margin: 5 25 5 25;
+  }
+  .home-card{
+    margin-right: 25px;
+    width: 60%;
+  }
+}
