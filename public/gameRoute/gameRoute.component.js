@@ -17,7 +17,7 @@
       console.log("submitted in game-route");
       console.log(input);
 
-      rollService.rollDice()
+      rollService.rollDice(input.input)
         .then(function(response){
           console.log(response);
         }).catch(function(response){
