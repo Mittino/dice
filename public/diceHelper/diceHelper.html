@@ -1,0 +1,28 @@
+<div> Dice Helper Component Here!</div>
+
+  <div class="row">
+      <form class="col offset-m2 s12 m8" ng-submit="$ctrl.onSubmit({input: $ctrl.helperForm})" name="diceHelperForm">
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="number-of-dice" type="number" class="validate" ng-model="$ctrl.helperForm.numberOfDice" required>
+            <label for="first_name">Number of Dice</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="number-of-sides" type="number" class="validate" ng-model="$ctrl.helperForm.numberOfSides">
+            <label for="number-of-sides">Number of Sides</label>
+          </div>
+        </div>
+        <div class="row">
+          <div input-field>
+          <select class="" ng-model="$ctrl.helperForm.diceProperty" material-select watch>
+            <option>Keep Lowest</option>
+            <option>Keep Highest</option>
+            <option>Keep Explosive</option>
+          </select>
+        </div>
+      </div>
+      <div class="center">
+        <button class="btn" type="submit"> ROLL </button>
+      </div>
+      </form>
+  </div>
