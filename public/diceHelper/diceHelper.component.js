@@ -14,9 +14,23 @@
       var vm = this;
       vm.helperForm = {};
 
+      vm.$onInit = function() {
+        vm.helperForm = {};
+      };
+
       vm.updateForm = function(){
-        vm.helpferForm = {};
+        if (vm.helperForm.roll === 'Literal Value') {
+          // reset the right ones
+        } else {
+        
+        }
+        vm.helperForm.literalValue = null;
+
       }
 
+      vm.submitForm = function() {
+        vm.onSubmit({input: vm.helperForm});
+        vm.helperForm = {};
+      }
     }
 })();

@@ -83,11 +83,50 @@ function explosive(input){
 }
 
 //console.log("result", explosive(data));
+function transformRaw(input){
+  console.log("transform input", input);
+  var expression = input.expression;
+  var splitExpression = expression.split(/\s/g);
+  console.log("split expression", splitExpression);
+  var array = [];
 
+  for (let i=0; i<splitExpression.length; i++){
+    var numbers = splitExpression[i].split(/[d,k,x]/g);
+    var letters = splitExpression[i].split(/\d/g);
+    console.log(splitExpression[i]);
+    //console.log(numbers, letters);
+    var object = {};
+    for (let j=0; j<splitExpression[i].length; j++){
+      //var object = {};
+      var iteration = splitExpression[i];
+
+      if(j === 0 && !isNaN(iteration[j])){
+        object.numberOfDice = numbers[j];
+
+      } else if(j === 0 && isNaN(iteration[j])){
+        array.push(splitExpression[i])
+
+      } else if(j === 1){
+        object.numberOfSides = numbers[j];
+      } else if(j === 2){
+        object.dicePropertyValue = numbers[j];
+        object.diceProperty = letters[3];
+      } else if (j === splitExpression.length){
+        array.push(object);
+        object = {};
+      }
+    }
+    array.push(object);
+    object = {};
+  }
+  console.log(array);
+  return "hello";
+}
 
 module.exports = {
   rollDice: rollDice,
   keepLowest: keepLowest,
   keepHighest: keepHighest,
-  explosive: explosive
+  explosive: explosive,
+  transformRaw: transformRaw
 };

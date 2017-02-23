@@ -32,6 +32,11 @@ router.post('/roll', function(req, res, next){
 });
 
 router.post('/raw', function(req, res, next){
+  let input = req.body;
+  var result = dice.transformRaw(input);
+  console.log(result);
+
+
   res.send("router raw");
 });
 
