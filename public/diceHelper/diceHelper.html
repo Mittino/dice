@@ -1,33 +1,50 @@
 <div> Dice Helper Component Here!</div>
 
   <div class="row">
-      <form class="col offset-m2 s12 m8" ng-submit="$ctrl.onSubmit({input: $ctrl.helperForm})" name="diceHelperForm">
+    <form class="col offset-m2 s12 m8" ng-submit="$ctrl.onSubmit({input: $ctrl.helperForm})" name="diceHelperForm">
         <div class="row">
+          <div input-field class="col m4">
+          <select class="" ng-model="$ctrl.helperForm.roll" material-select watch>
+            <option value="" disabled selected>Select Game Type</option>
+            <option>Literal Value</option>
+            <option>Roll Dice</option>
+          </select>
+        </div>
+        <div ng-if="$ctrl.helperForm.roll == 'Literal Value'">
           <div class="input-field col s6">
-            <input id="number-of-dice" type="number" class="validate" ng-model="$ctrl.helperForm.numberOfDice" required>
-            <label for="first_name">Number of Dice</label>
+            <input id="number-of-dice" type="number" class="validate" ng-model="$ctrl.helperForm.literalValue" required>
+            <label>Number</label>
           </div>
-          <div class="input-field col s6">
+        </div>
+      <div ng-if="$ctrl.helperForm.roll == 'Roll Dice'">
+        <div class="row">
+          <div class="input-field col s4">
+            <input type="number" class="validate" ng-model="$ctrl.helperForm.numberOfDice" required>
+            <label>Number of Dice</label>
+          </div>
+          <div class="input-field col s4">
             <input id="number-of-sides" type="number" class="validate" ng-model="$ctrl.helperForm.numberOfSides" required>
-            <label for="number-of-sides">Number of Sides</label>
+            <label>Number of Sides</label>
           </div>
         </div>
         <div class="row">
-          <div input-field class="col m4">
+          <div input-field class="col s4">
           <select class="" ng-model="$ctrl.helperForm.diceProperty" material-select watch>
             <option value="" disabled selected>Add An Additional Expression</option>
             <option>Keep Lowest</option>
             <option>Keep Highest</option>
             <option>Explosive</option>
           </select>
-        </div>
-        <div class="input-field col s6" ng-if="$ctrl.helperForm.diceProperty != null">
-          <input id="dice-property-value" type="number" class="validate" ng-model="$ctrl.helperForm.dicePropertyValue" required>
-          <label for="number-of-sides">Number</label>
+          </div>
+          <div class="input-field col s6" ng-if="$ctrl.helperForm.diceProperty != null">
+            <input id="dice-property-value" type="number" class="validate" ng-model="$ctrl.helperForm.dicePropertyValue" required>
+            <label>Number</label>
+          </div>
         </div>
       </div>
-      <div class="center">
-        <button class="btn" type="submit"> ROLL </button>
+        <div class="center">
+          <button class="btn" type="submit"> ROLL </button>
+        </div>
       </div>
-      </form>
+    </form>
   </div>

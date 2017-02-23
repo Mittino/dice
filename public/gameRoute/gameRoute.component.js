@@ -14,17 +14,21 @@
     var vm = this;
 
     vm.handleSubmit = function(input){
-      console.log("submitted in game-route");
       console.log(input);
 
-      rollService.rollDice(input.input)
+      if(input.literalValue){
+        vm.rollResults = input;
+        return;
+      } else {
+        rollService.rollDice(input.input)
         .then(function(response){
           console.log(response);
+          vm.rollResults = response.data.result;
         }).catch(function(response){
           console.log("error", response);
         });
-    };
-
+    }
+  };
 
   }
 
