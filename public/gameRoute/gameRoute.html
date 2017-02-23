@@ -1,7 +1,22 @@
 
-<dice-helper input="$ctrl.helperForm" on-submit="$ctrl.handleSubmit({input})"></dice-helper>
+<div class="row">
+  <div input-field class="col m4">
+    <p> Select Game Type Below: </p>
+    <select class="" ng-model="$ctrl.gameType" material-select watch>
+      <option value="" disabled selected>Select Game Type</option>
+      <option>Literal Value</option>
+      <option>Roll Dice</option>
+      <option>Enter Dice Expression</option>
+    </select>
+  </div>
+</div>
 
-<dice-expression input="$ctrl.rawInput" on-submit="$ctrl.handleRawInput({input})"></dice-expression>
+<literal-value ng-if="$ctrl.gameType == 'Literal Value'" submit-literal="$ctrl.handleLiteral({input})"></literal-value>
+
+<dice-helper ng-if="$ctrl.gameType == 'Roll Dice'" input="$ctrl.helperForm" on-submit="$ctrl.handleSubmit({input})" ng-if="$ctrl.gameType='Roll Dice'"></dice-helper>
+
+
+<dice-expression ng-if="$ctrl.gameType == 'Enter Dice Expression'" input="$ctrl.rawInput" on-submit="$ctrl.handleRawInput({input})"></dice-expression>
 
 <results roll-results="$ctrl.rollResults"></results>
 

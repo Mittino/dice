@@ -39,7 +39,12 @@
     }).catch(function(response){
       console.log("error", response);
     });
+  }
 
+  vm.handleLiteral = function(input){
+    vm.rollResults = {};
+    console.log(input.input);
+    vm.rollResults.literalValue = input.input;
   }
 
   }

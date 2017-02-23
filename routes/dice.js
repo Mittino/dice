@@ -9,7 +9,7 @@ const dice = require('../modules/dice.js');
 router.post('/roll', function(req, res, next){
   let input = req.body;
   var result;
-
+  
   if(!input.diceProperty){
     result = dice.rollDice(input); //roll dice NdX
     res.send({"result": result});
