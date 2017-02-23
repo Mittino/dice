@@ -30,6 +30,18 @@
     }
   };
 
+  vm.handleRawInput = function(input){
+    console.log("raw input", input);
+    rollService.rawInput(input.input)
+    .then(function(response){
+      console.log(response);
+      vm.rollResults = response.data.result;
+    }).catch(function(response){
+      console.log("error", response);
+    });
+
+  }
+
   }
 
 

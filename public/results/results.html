@@ -25,7 +25,8 @@
       <!--sum-->
       <div class="card-content black-text">
         <span class="card-title">Total</span>
-        <div>{{$ctrl.rollResults.total}}</div>
+        <div ng-if"$ctrl.rollResults.total">{{$ctrl.rollResults.total}}</div>
+        <div ng-if"!$ctrl.rollResults.input.roll === 'Literal Value'">{{$ctrl.rollResults.input.literalValue}}</div>
       </div>
     </div>
   </div>

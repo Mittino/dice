@@ -14,5 +14,9 @@
       var vm = this;
       vm.helperForm = {};
 
+      vm.updateForm = function(){
+        vm.helpferForm = {};
+      }
+
     }
 })();

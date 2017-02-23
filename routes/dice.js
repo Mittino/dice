@@ -31,4 +31,8 @@ router.post('/roll', function(req, res, next){
   }
 });
 
+router.post('/raw', function(req, res, next){
+  res.send("router raw");
+});
+
 module.exports = router;

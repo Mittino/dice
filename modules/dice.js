@@ -2,10 +2,10 @@
 
 const _ = require('lodash');
 
-var data = { diceProperty: 'Explosive',
-  numberOfDice: 3,
-  numberOfSides: 8,
-  dicePropertyValue: 1};
+//var data = { diceProperty: 'Explosive',
+  // numberOfDice: 3,
+  // numberOfSides: 8,
+  // dicePropertyValue: 1};
 
 function rollDice(input){
   var newArray = [];
@@ -82,7 +82,7 @@ function explosive(input){
   };
 }
 
-console.log("result", explosive(data));
+//console.log("result", explosive(data));
 
 
 module.exports = {

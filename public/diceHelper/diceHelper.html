@@ -4,18 +4,20 @@
     <form class="col offset-m2 s12 m8" ng-submit="$ctrl.onSubmit({input: $ctrl.helperForm})" name="diceHelperForm">
         <div class="row">
           <div input-field class="col m4">
-          <select class="" ng-model="$ctrl.helperForm.roll" material-select watch>
+          <select class="" ng-model="$ctrl.helperForm.roll" material-select watch ng-change="$ctrl.updateForm()">
             <option value="" disabled selected>Select Game Type</option>
             <option>Literal Value</option>
             <option>Roll Dice</option>
           </select>
         </div>
+        <!--literal value selected -->
         <div ng-if="$ctrl.helperForm.roll == 'Literal Value'">
           <div class="input-field col s6">
             <input id="number-of-dice" type="number" class="validate" ng-model="$ctrl.helperForm.literalValue" required>
             <label>Number</label>
           </div>
         </div>
+      <!--roll dice selected-->
       <div ng-if="$ctrl.helperForm.roll == 'Roll Dice'">
         <div class="row">
           <div class="input-field col s4">
