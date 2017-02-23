@@ -6,7 +6,7 @@
       controller: resultsController,
       templateUrl: "results/results.html",
       bindings: {
-        rollResults: '<'
+        rollResults: '<',
       }
     });
 

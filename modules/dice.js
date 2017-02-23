@@ -16,8 +16,12 @@ function rollDice(input){
     newArray.push(diceRoll);
     newArray.sort();
   }
+  var total = newArray.reduce(function(acc, val){
+    return acc + val;
+  });
   return {"rollResult": newArray,
-          "input": input
+          "input": input,
+          "total": total
         };
 }
 
@@ -82,45 +86,56 @@ function explosive(input){
   };
 }
 
-//console.log("result", explosive(data));
 function transformRaw(input){
-  console.log("transform input", input);
   var expression = input.expression;
-  var splitExpression = expression.split(/\s/g);
-  console.log("split expression", splitExpression);
+  var splitExpression = expression.split(/\s/g); //split at spaces
   var array = [];
 
   for (let i=0; i<splitExpression.length; i++){
-    var numbers = splitExpression[i].split(/[d,k,x]/g);
-    var letters = splitExpression[i].split(/\d/g);
-    console.log(splitExpression[i]);
-    //console.log(numbers, letters);
+    var numbers = splitExpression[i].split(/[d,k,x]/g); //split at alpha value
+    var letters = splitExpression[i].split(/\d/g); //split at numeric value
+
     var object = {};
     for (let j=0; j<splitExpression[i].length; j++){
-      //var object = {};
       var iteration = splitExpression[i];
-
       if(j === 0 && !isNaN(iteration[j])){
         object.numberOfDice = numbers[j];
-
       } else if(j === 0 && isNaN(iteration[j])){
-        array.push(splitExpression[i])
-
+        object.math = splitExpression[i];
       } else if(j === 1){
         object.numberOfSides = numbers[j];
       } else if(j === 2){
         object.dicePropertyValue = numbers[j];
-        object.diceProperty = letters[3];
-      } else if (j === splitExpression.length){
-        array.push(object);
-        object = {};
+        object.diceProperty = letters[1];
       }
     }
     array.push(object);
     object = {};
   }
-  console.log(array);
-  return "hello";
+  return determineRoll(array);
+}
+
+function determineRoll(array){
+  var resultArray = [];
+
+  for (let i=0; i<array.length; i++){
+    if(array[i].math){
+      resultArray.push(array[i]);
+    } else if (array[i].diceProperty === 'k'){
+      resultArray.push(keepHighest(array[i]));
+    } else if (array[i].diceProperty === 'd'){
+      resultArray.push(keepLowest(array[i]));
+    } else if (array[i].diceProperty === 'x'){
+      resultArray.push(explosive(array[i]));
+    } else if(!array[i].numberOfSides){
+      array[i].total = array[i].numberOfDice;
+      resultArray.push(array[i]);
+    } else {
+      resultArray.push(rollDice(array[i]));
+    }
+  }
+  console.log("results", resultArray);
+  return resultArray;
 }
 
 module.exports = {

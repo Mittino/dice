@@ -35,7 +35,7 @@
     rollService.rawInput(input.input)
     .then(function(response){
       console.log(response);
-      vm.rollResults = response.data.result;
+      vm.rawResults = response.data.result;
     }).catch(function(response){
       console.log("error", response);
     });

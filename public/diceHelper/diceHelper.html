@@ -1,6 +1,7 @@
-<div> Dice Helper Component Here!</div>
-
   <div class="row">
+    <div>
+      <p>Please select your game type below: </p>
+    </div>
     <form class="col offset-m2 s12 m8" ng-submit="$ctrl.onSubmit({input: $ctrl.helperForm})" name="diceHelperForm">
         <div class="row">
           <div input-field class="col m4">
@@ -10,7 +11,6 @@
             <option>Roll Dice</option>
           </select>
         </div>
-        <pre>{{$ctrl.helperForm}}</pre>
         <!--literal value selected -->
         <div ng-if="$ctrl.helperForm.roll == 'Literal Value'">
           <div class="input-field col s6">
