@@ -8,21 +8,22 @@
             <label for="first_name">Number of Dice</label>
           </div>
           <div class="input-field col s6">
-            <input id="number-of-sides" type="number" class="validate" ng-model="$ctrl.helperForm.numberOfSides">
+            <input id="number-of-sides" type="number" class="validate" ng-model="$ctrl.helperForm.numberOfSides" required>
             <label for="number-of-sides">Number of Sides</label>
           </div>
         </div>
         <div class="row">
-          <div input-field>
+          <div input-field class="col m4">
           <select class="" ng-model="$ctrl.helperForm.diceProperty" material-select watch>
+            <option value="" disabled selected>Add An Additional Expression</option>
             <option>Keep Lowest</option>
             <option>Keep Highest</option>
-            <option>Keep Explosive</option>
+            <option>Explosive</option>
           </select>
         </div>
-        <div class="input-field col s6">
-          <input id="dice-property-value" type="number" class="validate" ng-model="$ctrl.helperForm.dicePropertyValue">
-          <label for="number-of-sides">Number of Sides</label>
+        <div class="input-field col s6" ng-if="$ctrl.helperForm.diceProperty != null">
+          <input id="dice-property-value" type="number" class="validate" ng-model="$ctrl.helperForm.dicePropertyValue" required>
+          <label for="number-of-sides">Number</label>
         </div>
       </div>
       <div class="center">
