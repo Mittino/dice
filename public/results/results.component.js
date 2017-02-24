@@ -12,7 +12,7 @@
 
     function resultsController(){
       var vm = this;
-      console.log(vm.rollResults);
+  
     }
 
 })();

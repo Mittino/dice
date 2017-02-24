@@ -14,7 +14,6 @@
       var vm = this;
       vm.rawResults;
       vm.grandTotal;
-      var newArray = [];
 
       vm.$onChanges = function(){
         var results = vm.rawResults;

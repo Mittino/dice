@@ -11,10 +11,6 @@
   function homeController(){
     var vm = this;
 
-    vm.playGame = function(){
-      console.log("clicked play");
-    };
-
   }
 
 
