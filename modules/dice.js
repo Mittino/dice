@@ -6,7 +6,7 @@ function rollDice(input){
   var newArray = [];
   var diceRoll;
   for (let i=0; i<input.numberOfDice; i++){
-    diceRoll = _.random(input.numberOfSides);
+    diceRoll = _.random(1, input.numberOfSides);
     newArray.push(diceRoll);
     newArray.sort();
   }

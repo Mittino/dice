@@ -18,6 +18,7 @@
         <div ng-if="n.filteredArray" class="card-content black-text">
           <span class="card-title">Filtered Result</span>
           <div ng-repeat="x in n.filteredArray track by $index">Filtered Roll {{$index+1}}: {{x}}</div>
+          <div ng-if="n.count"> Number of Rolls To Complete: {{n.count}}</div>
         </div>
         <div class="card-content black-text">
           <span class="card-title">Total</span>
