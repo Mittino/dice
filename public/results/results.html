@@ -2,7 +2,7 @@
 <div class="row" ng-if="$ctrl.rollResults">
   <div class="col s12 s4">
     <div class="card white">
-      <div class="card-content black-text">
+      <div class="card-content black-text center">
         <span class="card-title">Your Input</span>
       <!-- Input Given -->
         <p ng-if="$ctrl.rollResults.literalValue">Number: {{$ctrl.rollResults.literalValue}}</p>
@@ -12,23 +12,22 @@
         <p ng-if="$ctrl.rollResults.input.dicePropertyValue">Expression Value: {{$ctrl.rollResults.input.dicePropertyValue}}</p>
       </div>
     <!--Rolls -->
-      <div ng-if="$ctrl.rollResults.rollResult.length>0" class="card-content black-text">
+      <div ng-if="$ctrl.rollResults.rollResult.length>0" class="card-content black-text center">
         <span class="card-title">Dice Rolls</span>
         <div ng-repeat="n in $ctrl.rollResults.rollResult track by $index">Roll {{$index+1}}: {{n}}</div>
       </div>
     <!--Result -->
       <div ng-if="$ctrl.rollResults.filteredArray.length>0" class="card-content black-text">
-        <span class="card-title">Filtered Result</span>
+        <span class="card-title center">Filtered Result</span>
         <div ng-repeat="n in $ctrl.rollResults.filteredArray track by $index">Filtered Roll {{$index+1}}: {{n}}</div>
         <div ng-if="$ctrl.rollResults.count"> Number of Rolls To Complete: {{$ctrl.rollResults.count}}</div>
       </div>
       <!--sum-->
-      <div class="card-content black-text">
-        <span class="card-title">Total</span>
+      <div class="card-content black-text center">
+        <span class="card-title center">Total</span>
         <div ng-if="$ctrl.rollResults.total">{{$ctrl.rollResults.total}}</div>
         <div ng-if="$ctrl.rollResults.literalValue">{{$ctrl.rollResults.literalValue}}</div>
       </div>
     </div>
   </div>
 </div>
-<pre> {{$ctrl.rollResults | json}} </pre>
