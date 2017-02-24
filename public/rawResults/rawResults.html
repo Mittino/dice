@@ -1,35 +1,42 @@
 
   <div class="row" ng-if="$ctrl.rawResults">
     <div class="col s12 s4">
-      <div class="card white">
+
         <div class="card-content black-text">
           <div ng-repeat="n in $ctrl.rawResults track by $index">
-
+            <div class="card white">
             <span class="card-title">Your Input {{$index +1}}</span>
           <!-- Input Given -->
             <p ng-if="n.math">Expression: {{n.math}}</p>
             <p ng-if="n.input.numberOfDice">Number of Dice: {{n.input.numberOfDice}}</p>
             <p ng-if="n.input.numberOfSides">Number of Sides: {{n.input.numberOfSides}}</p>
+            <p ng-if="n.numberOfDice">Number of Dice: {{n.numberOfDice}}</p>
+            <p ng-if="n.numberOfSides">Number of Sides: {{n.numberOfSides}}</p>
             <p ng-if="n.input.diceProperty">Expression: {{n.input.diceProperty}}</p>
             <p ng-if="n.input.dicePropertyValue">Expression Value: {{n.input.dicePropertyValue}}</p>
 
-            <span ng-if="n.rollResult"class="card-title">Dice Rolls</span>
+            <span ng-if="n.rollResult" class="card-title">Dice Rolls</span>
             <div ng-repeat="x in n.rollResult track by $index">Roll {{$index+1}}: {{x}}</div>
 
             <div ng-if="n.filteredArray" class="card-content black-text">
               <span class="card-title">Filtered Result</span>
               <div ng-repeat="x in n.filteredArray track by $index">Filtered Roll {{$index+1}}: {{x}}</div>
             </div>
-
-            <div class="card-content black-text" ng-if="n.total">
+            <div class="card-content black-text">
               <span class="card-title">Total</span>
               <div ng-if="n.total">{{n.total}}</div>
               <div ng-if="!n.total"> {{n.input.numberOfDice}}</div>
             </div>
           </div>
-        </div>
       </div>
+
+
+      <div class="card white">
+        <span class="card-title" ng-if="$ctrl.grandTotal">Grand Total</span>
+        <div ng-if="$ctrl.grandTotal">{{$ctrl.grandTotal}}</div>
+      </div>
+      
+    </div>
   </div>
 </div>
-
-<pre> {{$ctrl.rawResults | json}} </pre>
+<pre>{{}}</pre>

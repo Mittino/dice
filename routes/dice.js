@@ -9,12 +9,12 @@ const dice = require('../modules/dice.js');
 router.post('/roll', function(req, res, next){
   let input = req.body;
   var result;
-  
+
   if(!input.diceProperty){
     result = dice.rollDice(input); //roll dice NdX
     res.send({"result": result});
-  } else if (input.diceProperty === 'Keep Lowest'){
-    result = dice.keepLowest(input); //drop lowest NdXdD
+  } else if (input.diceProperty === 'Drop Lowest'){
+    result = dice.dropLowest(input); //drop lowest NdXdD
     res.send({"result": result});
   } else if (input.diceProperty === 'Keep Highest'){
     result = dice.keepHighest(input); //keep highest NdXkK

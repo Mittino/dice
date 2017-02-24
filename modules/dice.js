@@ -2,32 +2,28 @@
 
 const _ = require('lodash');
 
-//var data = { diceProperty: 'Explosive',
-  // numberOfDice: 3,
-  // numberOfSides: 8,
-  // dicePropertyValue: 1};
-
 function rollDice(input){
   var newArray = [];
   var diceRoll;
-  var i;
-  for (i=0; i<input.numberOfDice; i++){
+  for (let i=0; i<input.numberOfDice; i++){
     diceRoll = _.random(input.numberOfSides);
     newArray.push(diceRoll);
     newArray.sort();
   }
+
   var total = newArray.reduce(function(acc, val){
     return acc + val;
   });
+
   return {"rollResult": newArray,
           "input": input,
           "total": total
         };
 }
 
-function keepLowest(input){
+function dropLowest(input){
   var rollResult = rollDice(input);
-  var filteredArray = _.dropRight(rollResult.rollResult, (input.numberOfDice - input.dicePropertyValue));
+  var filteredArray = _.drop(rollResult.rollResult, input.dicePropertyValue);
   var total = filteredArray.reduce(function(acc, val){
     return acc + val;
   });
@@ -106,7 +102,9 @@ function transformRaw(input){
         object.numberOfSides = numbers[j];
       } else if(j === 2){
         object.dicePropertyValue = numbers[j];
-        object.diceProperty = letters[1];
+      }
+      else if(j === 3){
+        object.diceProperty = letters[2];
       }
     }
     array.push(object);
@@ -124,7 +122,7 @@ function determineRoll(array){
     } else if (array[i].diceProperty === 'k'){
       resultArray.push(keepHighest(array[i]));
     } else if (array[i].diceProperty === 'd'){
-      resultArray.push(keepLowest(array[i]));
+      resultArray.push(dropLowest(array[i]));
     } else if (array[i].diceProperty === 'x'){
       resultArray.push(explosive(array[i]));
     } else if(!array[i].numberOfSides){
@@ -134,13 +132,12 @@ function determineRoll(array){
       resultArray.push(rollDice(array[i]));
     }
   }
-  console.log("results", resultArray);
   return resultArray;
 }
 
 module.exports = {
   rollDice: rollDice,
-  keepLowest: keepLowest,
+  dropLowest: dropLowest,
   keepHighest: keepHighest,
   explosive: explosive,
   transformRaw: transformRaw
