@@ -13,12 +13,12 @@
         </div>
         <div class="row">
           <div input-field class="col s4">
-          <select class="" ng-model="$ctrl.helperForm.diceProperty" material-select watch>
-            <option value="" disabled selected>Add An Additional Expression</option>
-            <option>Drop Lowest</option>
-            <option>Keep Highest</option>
-            <option>Explosive</option>
-          </select>
+            <select class="" ng-model="$ctrl.helperForm.diceProperty" material-select watch>
+              <option value="" disabled selected>Add An Additional Expression</option>
+              <option>Drop Lowest</option>
+              <option>Keep Highest</option>
+              <option>Explosive</option>
+            </select>
           </div>
           <div class="input-field col s6" ng-if="$ctrl.helperForm.diceProperty != null">
             <input id="dice-property-value" type="number" class="validate" ng-model="$ctrl.helperForm.dicePropertyValue" required>
@@ -26,9 +26,8 @@
           </div>
         </div>
       </div>
-        <div class="center">
-          <button class="btn" type="submit"> ROLL </button>
-        </div>
+      <div class="center">
+        <button class="btn" type="submit"> ROLL </button>
       </div>
     </form>
   </div>

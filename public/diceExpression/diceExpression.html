@@ -1,17 +1,12 @@
-<div> Dice Expression Component Here! </div>
 
 <form class="col offset-m2 s12 m8" ng-submit="$ctrl.onSubmit({input:$ctrl.rawInput})">
   <div class="row">
-  <div class="input-field col offset-m2 s4 m6">
-    <input id="raw-input" type="text" class="validate" ng-model="$ctrl.rawInput.expression">
-    <label>Input Raw Expression: </label>
+    <div class="input-field col offset-m2 s4 m6">
+      <input id="raw-input" type="text" class="validate" ng-model="$ctrl.rawInput.expression">
+      <label>Input Raw Expression: </label>
+    </div>
+    <div class="center">
+      <button class="btn" type="submit"> ROLL </button>
+    </div>
   </div>
-  <div class="center">
-    <button class="btn" type="submit"> ROLL </button>
-  </div>
-</div>
-
-
-
-
 </form>
