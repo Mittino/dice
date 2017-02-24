@@ -2,7 +2,7 @@
 <div class="row">
   <div input-field class="col m4">
     <p> Select Game Type Below: </p>
-    <select class="" ng-model="$ctrl.gameType" material-select watch>
+    <select class="" ng-model="$ctrl.gameType" material-select watch ng-change="$ctrl.handleChange()">
       <option value="" disabled selected>Select Game Type</option>
       <option>Literal Value</option>
       <option>Roll Dice</option>

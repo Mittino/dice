@@ -45,7 +45,12 @@
     vm.rollResults = {};
     console.log(input.input);
     vm.rollResults.literalValue = input.input;
-  }
+  };
+
+  vm.handleChange = function(){
+    vm.rollResults = null;
+    vm.rawResults = null;
+  };
 
   }
 

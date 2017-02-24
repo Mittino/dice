@@ -21,7 +21,7 @@
           <div ng-if="n.count"> Number of Rolls To Complete: {{n.count}}</div>
         </div>
         <div class="card-content black-text">
-          <span class="card-title">Total</span>
+          <span class="card-title" ng-if="n.input.diceProperty !== '-' || n.input.diceProperty !== '+'">Total</span>
           <div ng-if="n.total || n.total === 0">{{n.total}}</div>
           <div ng-if="!n.total"> {{n.input.numberOfDice}}</div>
         </div>
